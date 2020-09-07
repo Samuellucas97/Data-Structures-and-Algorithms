@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-class Fib {
+class LastDigitFib {
   public static long fibonnaciReccursive(Integer n) {
     if ( n <= 1L) 
       return n;
@@ -9,21 +9,16 @@ class Fib {
   }
 
 
-  public static Integer fibbonacci(Integer n) {
-    
-    if ( n == 0 || n == 1)
-      return n;
-    else {
-      Integer[] elements = new Integer[n+1];
-      elements[0] = 0;
-      elements[1] = 1;
+  public static Long fibbonacci(Integer n) {
+    Long[] elements = new Long[n+1];
+    elements[0] = 0L;
+    elements[1] = 1L;
 
-      for (int i=2; i< n+1; ++i) {
-        elements[i] = (elements[i-1] + elements[i-2]);  
-      }
-
-      return elements[n];
+    for (int i=2; i< n+1; ++i) {
+      elements[i] = (elements[i-1] + elements[i-2]) % 10;  
     }
+
+    return elements[n];
   }
   public static void main(String[] args) {
     Scanner inputUser = new Scanner(System.in);
